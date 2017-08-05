@@ -22,12 +22,9 @@ public class fileModifier extends UserInterface{
                int index;
                for(File fileName : directory.listFiles())
                {
-                   
                        index = fileName.getName().indexOf('.')+1;
                        File file = new File(filePath+"/"+fileName.getName().substring(0,index)+newFileExtension);
                        fileName.renameTo(file);
-                   
-                   
                }
            }
                else 
