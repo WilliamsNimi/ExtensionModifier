@@ -6,6 +6,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -98,8 +100,14 @@ public UserInterface(){
             filePath = folderPath.getText();
             extension = newExtension.getText();
             fileModifier modify = new fileModifier();
-            modify.fileExtensionChanger();
-            JOptionPane.showMessageDialog(null, "Files renamed successfully");
+            try {
+                modify.fileExtensionChanger();
+                JOptionPane.showMessageDialog(null, "Files renamed successfully");
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(null, e1.getMessage());
+                e1.printStackTrace();
+            }
+            
             
         }
         
